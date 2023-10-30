@@ -13,7 +13,7 @@ class CompanyRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,10 +23,11 @@ class CompanyRequest extends FormRequest
      */
     public function rules()
     {
+        // dd($this->request->all());
         return [
             'name' => 'required',
             'email' => 'email',
-            'logo' => 'image|mimes:jpeg,png,jpg,gif|max:2048|dimensions:min_width=100,min_height=100',
+            'file.logo' => 'image|mimes:jpeg,png,jpg,gif|max:2048|dimensions:min_width=100,min_height=100',
             'website' => 'url',
         ];
     }

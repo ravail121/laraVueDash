@@ -17,11 +17,10 @@ class CompanyController extends Controller
     public function store(CompanyRequest $request)
     {
         $data = $request->validated();
-        
-        // Handle logo upload and storage if needed
         if ($request->hasFile('logo')) {
-            $logoPath = $request->file('logo')->store('public/logos');
-            $data['logo'] = $logoPath;
+            $filename = $request->file('logo')->getClientOriginalName();
+            $request->file('logo')->storeAs('public/logos', $filename);
+            $data['logo'] = $filename;
         }
         
         $company = Company::create($data);
@@ -40,8 +39,9 @@ class CompanyController extends Controller
         
         // Handle logo update and storage if needed
         if ($request->hasFile('logo')) {
-            $logoPath = $request->file('logo')->store('public/logos');
-            $data['logo'] = $logoPath;
+            $filename = $request->file('logo')->getClientOriginalName();
+            $request->file('logo')->storeAs('public/logos', $filename);
+            $data['logo'] = $filename;
         }
         
         $company->update($data);

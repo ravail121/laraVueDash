@@ -1,10 +1,10 @@
 "use strict";
-(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_views_admin_companiesList_vue"],{
+(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_views_admin_employeeList_vue"],{
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/admin/companiesList.vue?vue&type=script&lang=js":
-/*!********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/admin/companiesList.vue?vue&type=script&lang=js ***!
-  \********************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/admin/employeeList.vue?vue&type=script&lang=js":
+/*!*******************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/admin/employeeList.vue?vue&type=script&lang=js ***!
+  \*******************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -16,68 +16,63 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'companiesList',
+  name: 'employeesList',
   data: function data() {
     return {
-      companies: [],
+      employees: [],
       successMessage: this.$route.params.successMessage,
-      companyToDelete: null // Track the company to delete
+      employeeToDelete: null // Track the employee to delete
     };
   },
 
   methods: {
-    // Method to fetch company data from the API
-    fetchCompanies: function fetchCompanies() {
+    // Method to fetch employee data from the API
+    fetchEmployees: function fetchEmployees() {
       var _this = this;
-      axios.get('/companies').then(function (response) {
-        _this.companies = response.data.data;
+      axios.get('/employees').then(function (response) {
+        _this.employees = response.data.data;
       })["catch"](function (error) {
-        console.error('Error fetching company data:', error);
+        console.error('Error fetching employee data:', error);
       });
     },
-    // Method to get the logo URL
-    getLogoUrl: function getLogoUrl(logo) {
-      if (logo) {
-        return "/storage/logos/".concat(logo);
-      }
-      return '/default-logo.png';
-    },
-    // Show the confirmation modal and store the company to delete
-    showConfirmDeleteModal: function showConfirmDeleteModal(companyId) {
-      this.companyToDelete = companyId;
+    // Show the confirmation modal and store the employee to delete
+    showConfirmDeleteModal: function showConfirmDeleteModal(employeeId) {
+      this.employeeToDelete = employeeId;
       $('#confirmDeleteModal').modal('show');
     },
-    // Confirm and delete the company
+    // Confirm and delete the employee
     confirmDelete: function confirmDelete() {
       var _this2 = this;
-      if (this.companyToDelete) {
-        axios["delete"]("/companies/".concat(this.companyToDelete)).then(function (response) {
-          // Remove the company from the list
-          _this2.companies = _this2.companies.filter(function (company) {
-            return company.id !== _this2.companyToDelete;
+      if (this.employeeToDelete) {
+        axios["delete"]("/employees/".concat(this.employeeToDelete)).then(function (response) {
+          // Remove the employee from the list
+          _this2.employees = _this2.employees.filter(function (employee) {
+            return employee.id !== _this2.employeeToDelete;
           });
 
           // Hide the confirmation modal
           $('#confirmDeleteModal').modal('hide');
         })["catch"](function (error) {
-          console.error('Error deleting company:', error);
+          console.error('Error deleting employee:', error);
         });
       }
     }
   },
   mounted: function mounted() {
-    this.fetchCompanies().then(function () {
+    this.fetchEmployees().then(function () {
       $('#dataTable').DataTable();
+    })["catch"](function (error) {
+      console.error('Error during component initialization:', error);
     });
   }
 });
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/admin/companiesList.vue?vue&type=template&id=7bd57caa":
-/*!*******************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/admin/companiesList.vue?vue&type=template&id=7bd57caa ***!
-  \*******************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/admin/employeeList.vue?vue&type=template&id=c3859f2a":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/admin/employeeList.vue?vue&type=template&id=c3859f2a ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -90,7 +85,7 @@ var render = function render() {
     _c = _vm._self._c;
   return _c("div", [_c("h1", {
     staticClass: "h3 mb-2 text-gray-800"
-  }, [_vm._v("Companies")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("Employees")]), _vm._v(" "), _c("div", {
     staticClass: "modal fade",
     attrs: {
       id: "confirmDeleteModal",
@@ -108,7 +103,7 @@ var render = function render() {
     staticClass: "modal-content"
   }, [_vm._m(0), _vm._v(" "), _c("div", {
     staticClass: "modal-body"
-  }, [_vm._v("\n                    Are you sure you want to delete this company?\n                ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                    Are you sure you want to delete this employee?\n                ")]), _vm._v(" "), _c("div", {
     staticClass: "modal-footer"
   }, [_c("button", {
     staticClass: "btn btn-secondary",
@@ -131,9 +126,9 @@ var render = function render() {
   }, [_c("router-link", {
     staticClass: "btn btn-primary",
     attrs: {
-      to: "/admin/add-company"
+      to: "/admin/add-employee"
     }
-  }, [_vm._v("Add Company")])], 1), _vm._v(" "), _c("div", {
+  }, [_vm._v("Add Employee")])], 1), _vm._v(" "), _c("div", {
     staticClass: "card shadow mb-4"
   }, [_c("div", {
     staticClass: "card-body"
@@ -146,26 +141,20 @@ var render = function render() {
       width: "100%",
       cellspacing: "0"
     }
-  }, [_vm._m(1), _vm._v(" "), _c("tbody", _vm._l(_vm.companies, function (company) {
+  }, [_vm._m(1), _vm._v(" "), _c("tbody", _vm._l(_vm.employees, function (employee) {
     return _c("tr", {
-      key: company.id
-    }, [_c("td", [_vm._v(_vm._s(company.name))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(company.email))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(company.website))]), _vm._v(" "), _c("td", [_c("img", {
-      attrs: {
-        src: _vm.getLogoUrl(company.logo),
-        alt: "Company Logo",
-        width: "50"
-      }
-    })]), _vm._v(" "), _c("td", [_c("router-link", {
+      key: employee.id
+    }, [_c("td", [_vm._v(_vm._s(employee.first_name))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(employee.last_name))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(employee.company.name))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(employee.email))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(employee.phone))]), _vm._v(" "), _c("td", [_c("router-link", {
       staticClass: "btn btn-primary",
       attrs: {
-        to: "/admin/edit-company/" + company.id,
-        data: company
+        to: "/admin/edit-employee/" + employee.id,
+        data: employee
       }
     }, [_vm._v("\n                                    Edit\n                                ")]), _vm._v(" "), _c("button", {
       staticClass: "btn btn-danger",
       on: {
         click: function click($event) {
-          return _vm.showConfirmDeleteModal(company.id);
+          return _vm.showConfirmDeleteModal(employee.id);
         }
       }
     }, [_vm._v("\n                                    Delete\n                                ")])], 1)]);
@@ -196,7 +185,7 @@ var staticRenderFns = [function () {
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("thead", [_c("tr", [_c("th", [_vm._v("Name")]), _vm._v(" "), _c("th", [_vm._v("Email")]), _vm._v(" "), _c("th", [_vm._v("Website")]), _vm._v(" "), _c("th", [_vm._v("Logo")]), _vm._v(" "), _c("th", [_vm._v("Actions")])])]);
+  return _c("thead", [_c("tr", [_c("th", [_vm._v("First Name")]), _vm._v(" "), _c("th", [_vm._v("Last Name")]), _vm._v(" "), _c("th", [_vm._v("Company")]), _vm._v(" "), _c("th", [_vm._v("Email")]), _vm._v(" "), _c("th", [_vm._v("Phone")]), _vm._v(" "), _c("th", [_vm._v("Actions")])])]);
 }];
 render._withStripped = true;
 
@@ -608,18 +597,18 @@ module.exports = function (list, options) {
 
 /***/ }),
 
-/***/ "./resources/js/views/admin/companiesList.vue":
-/*!****************************************************!*\
-  !*** ./resources/js/views/admin/companiesList.vue ***!
-  \****************************************************/
+/***/ "./resources/js/views/admin/employeeList.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/views/admin/employeeList.vue ***!
+  \***************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _companiesList_vue_vue_type_template_id_7bd57caa__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./companiesList.vue?vue&type=template&id=7bd57caa */ "./resources/js/views/admin/companiesList.vue?vue&type=template&id=7bd57caa");
-/* harmony import */ var _companiesList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./companiesList.vue?vue&type=script&lang=js */ "./resources/js/views/admin/companiesList.vue?vue&type=script&lang=js");
+/* harmony import */ var _employeeList_vue_vue_type_template_id_c3859f2a__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./employeeList.vue?vue&type=template&id=c3859f2a */ "./resources/js/views/admin/employeeList.vue?vue&type=template&id=c3859f2a");
+/* harmony import */ var _employeeList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./employeeList.vue?vue&type=script&lang=js */ "./resources/js/views/admin/employeeList.vue?vue&type=script&lang=js");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -629,9 +618,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 ;
 var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _companiesList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"],
-  _companiesList_vue_vue_type_template_id_7bd57caa__WEBPACK_IMPORTED_MODULE_0__.render,
-  _companiesList_vue_vue_type_template_id_7bd57caa__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _employeeList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"],
+  _employeeList_vue_vue_type_template_id_c3859f2a__WEBPACK_IMPORTED_MODULE_0__.render,
+  _employeeList_vue_vue_type_template_id_c3859f2a__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
   null,
@@ -641,38 +630,38 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/views/admin/companiesList.vue"
+component.options.__file = "resources/js/views/admin/employeeList.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/views/admin/companiesList.vue?vue&type=script&lang=js":
-/*!****************************************************************************!*\
-  !*** ./resources/js/views/admin/companiesList.vue?vue&type=script&lang=js ***!
-  \****************************************************************************/
+/***/ "./resources/js/views/admin/employeeList.vue?vue&type=script&lang=js":
+/*!***************************************************************************!*\
+  !*** ./resources/js/views/admin/employeeList.vue?vue&type=script&lang=js ***!
+  \***************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_companiesList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./companiesList.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/admin/companiesList.vue?vue&type=script&lang=js");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_companiesList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_employeeList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./employeeList.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/admin/employeeList.vue?vue&type=script&lang=js");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_employeeList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/views/admin/companiesList.vue?vue&type=template&id=7bd57caa":
-/*!**********************************************************************************!*\
-  !*** ./resources/js/views/admin/companiesList.vue?vue&type=template&id=7bd57caa ***!
-  \**********************************************************************************/
+/***/ "./resources/js/views/admin/employeeList.vue?vue&type=template&id=c3859f2a":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/views/admin/employeeList.vue?vue&type=template&id=c3859f2a ***!
+  \*********************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_companiesList_vue_vue_type_template_id_7bd57caa__WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_companiesList_vue_vue_type_template_id_7bd57caa__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_employeeList_vue_vue_type_template_id_c3859f2a__WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_employeeList_vue_vue_type_template_id_c3859f2a__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_companiesList_vue_vue_type_template_id_7bd57caa__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./companiesList.vue?vue&type=template&id=7bd57caa */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/admin/companiesList.vue?vue&type=template&id=7bd57caa");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_employeeList_vue_vue_type_template_id_c3859f2a__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./employeeList.vue?vue&type=template&id=c3859f2a */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/admin/employeeList.vue?vue&type=template&id=c3859f2a");
 
 
 /***/ }),

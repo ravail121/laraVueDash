@@ -2357,114 +2357,7 @@ var render = function render() {
     staticClass: "fas fa-laugh-wink"
   })]), _vm._v(" "), _c("div", {
     staticClass: "sidebar-brand-text mx-3"
-  }, [_vm._v("SB Admin "), _c("sup", [_vm._v("2")])])]), _vm._v(" "), _c("hr", {
-    staticClass: "sidebar-divider my-0"
-  }), _vm._v(" "), _c("li", {
-    staticClass: "nav-item active"
-  }, [_c("router-link", {
-    staticClass: "nav-link",
-    attrs: {
-      to: "/admin"
-    }
-  }, [_c("i", {
-    staticClass: "fas fa-fw fa-tachometer-alt"
-  }), _vm._v(" "), _c("span", [_vm._v("Dashboard")])])], 1), _vm._v(" "), _c("hr", {
-    staticClass: "sidebar-divider"
-  }), _vm._v(" "), _c("div", {
-    staticClass: "sidebar-heading"
-  }, [_vm._v("Interface")]), _vm._v(" "), _c("li", {
-    staticClass: "nav-item"
-  }, [_vm._m(0), _vm._v(" "), _c("div", {
-    staticClass: "collapse",
-    attrs: {
-      id: "collapseTwo",
-      "aria-labelledby": "headingTwo",
-      "data-parent": "#accordionSidebar"
-    }
-  }, [_c("div", {
-    staticClass: "bg-white py-2 collapse-inner rounded"
-  }, [_c("h6", {
-    staticClass: "collapse-header"
-  }, [_vm._v("Custom Components:")]), _vm._v(" "), _c("router-link", {
-    staticClass: "collapse-item",
-    attrs: {
-      to: "/admin/components/buttons"
-    }
-  }, [_vm._v("Buttons")]), _vm._v(" "), _c("router-link", {
-    staticClass: "collapse-item",
-    attrs: {
-      to: "/admin/components/cards"
-    }
-  }, [_vm._v("Cards")])], 1)])]), _vm._v(" "), _c("li", {
-    staticClass: "nav-item"
-  }, [_vm._m(1), _vm._v(" "), _c("div", {
-    staticClass: "collapse",
-    attrs: {
-      id: "collapseUtilities",
-      "aria-labelledby": "headingUtilities",
-      "data-parent": "#accordionSidebar"
-    }
-  }, [_c("div", {
-    staticClass: "bg-white py-2 collapse-inner rounded"
-  }, [_c("h6", {
-    staticClass: "collapse-header"
-  }, [_vm._v("Custom Utilities:")]), _vm._v(" "), _c("router-link", {
-    staticClass: "collapse-item",
-    attrs: {
-      to: "/admin/utilities/colors"
-    }
-  }, [_vm._v("Colors")]), _vm._v(" "), _c("router-link", {
-    staticClass: "collapse-item",
-    attrs: {
-      to: "/admin/utilities/borders"
-    }
-  }, [_vm._v("Borders")]), _vm._v(" "), _c("router-link", {
-    staticClass: "collapse-item",
-    attrs: {
-      to: "/admin/utilities/animations"
-    }
-  }, [_vm._v("Animations")]), _vm._v(" "), _c("router-link", {
-    staticClass: "collapse-item",
-    attrs: {
-      to: "/admin/utilities/other"
-    }
-  }, [_vm._v("Other")])], 1)])]), _vm._v(" "), _c("hr", {
-    staticClass: "sidebar-divider"
-  }), _vm._v(" "), _c("div", {
-    staticClass: "sidebar-heading"
-  }, [_vm._v("Addons")]), _vm._v(" "), _c("li", {
-    staticClass: "nav-item"
-  }, [_vm._m(2), _vm._v(" "), _c("div", {
-    staticClass: "collapse",
-    attrs: {
-      id: "collapsePages",
-      "aria-labelledby": "headingPages",
-      "data-parent": "#accordionSidebar"
-    }
-  }, [_c("div", {
-    staticClass: "bg-white py-2 collapse-inner rounded"
-  }, [_c("h6", {
-    staticClass: "collapse-header"
-  }, [_vm._v("Other Pages:")]), _vm._v(" "), _c("router-link", {
-    staticClass: "collapse-item",
-    attrs: {
-      to: "/admin/pages/page-not-found"
-    }
-  }, [_vm._v("404 Page")]), _vm._v(" "), _c("router-link", {
-    staticClass: "collapse-item",
-    attrs: {
-      to: "/admin/pages/blank"
-    }
-  }, [_vm._v("Blank Page")])], 1)])]), _vm._v(" "), _c("li", {
-    staticClass: "nav-item"
-  }, [_c("router-link", {
-    staticClass: "nav-link",
-    attrs: {
-      to: "/admin/charts"
-    }
-  }, [_c("i", {
-    staticClass: "fas fa-fw fa-chart-area"
-  }), _vm._v(" "), _c("span", [_vm._v("Charts")])])], 1), _vm._v(" "), _c("li", {
+  }, [_vm._v("SB Admin "), _c("sup", [_vm._v("2")])])]), _vm._v(" "), _c("li", {
     staticClass: "nav-item"
   }, [_c("router-link", {
     staticClass: "nav-link",
@@ -2478,60 +2371,15 @@ var render = function render() {
   }, [_c("router-link", {
     staticClass: "nav-link",
     attrs: {
-      to: "/admin/tables"
+      to: "/admin/employeeList"
     }
   }, [_c("i", {
-    staticClass: "fas fa-fw fa-table"
-  }), _vm._v(" "), _c("span", [_vm._v("Tables")])])], 1), _vm._v(" "), _c("hr", {
+    staticClass: "fas fa-fw fa-chart-area"
+  }), _vm._v(" "), _c("span", [_vm._v("Employees")])])], 1), _vm._v(" "), _c("hr", {
     staticClass: "sidebar-divider d-none d-md-block"
-  }), _vm._v(" "), _vm._m(3)], 1);
+  }), _vm._v(" "), _vm._m(0)], 1);
 };
 var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("a", {
-    staticClass: "nav-link collapsed",
-    attrs: {
-      href: "#",
-      "data-toggle": "collapse",
-      "data-target": "#collapseTwo",
-      "aria-expanded": "true",
-      "aria-controls": "collapseTwo"
-    }
-  }, [_c("i", {
-    staticClass: "fas fa-fw fa-cog"
-  }), _vm._v(" "), _c("span", [_vm._v("Components")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("a", {
-    staticClass: "nav-link collapsed",
-    attrs: {
-      href: "#",
-      "data-toggle": "collapse",
-      "data-target": "#collapseUtilities",
-      "aria-expanded": "true",
-      "aria-controls": "collapseUtilities"
-    }
-  }, [_c("i", {
-    staticClass: "fas fa-fw fa-wrench"
-  }), _vm._v(" "), _c("span", [_vm._v("Utilities")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("a", {
-    staticClass: "nav-link collapsed",
-    attrs: {
-      href: "#",
-      "data-toggle": "collapse",
-      "data-target": "#collapsePages",
-      "aria-expanded": "true",
-      "aria-controls": "collapsePages"
-    }
-  }, [_c("i", {
-    staticClass: "fas fa-fw fa-folder"
-  }), _vm._v(" "), _c("span", [_vm._v("Pages")])]);
-}, function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
@@ -2941,19 +2789,9 @@ var render = function render() {
     }
   }, [_c("Topbar"), _vm._v(" "), _c("div", {
     staticClass: "container-fluid"
-  }, [_c("router-view")], 1)], 1), _vm._v(" "), _vm._m(0)])], 1);
+  }, [_c("router-view")], 1)], 1)])], 1);
 };
-var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("footer", {
-    staticClass: "sticky-footer bg-white"
-  }, [_c("div", {
-    staticClass: "container my-auto"
-  }, [_c("div", {
-    staticClass: "copyright text-center my-auto"
-  }, [_c("span", [_vm._v("Copyright © Your Website 2021")])])])]);
-}];
+var staticRenderFns = [];
 render._withStripped = true;
 
 
@@ -3143,16 +2981,6 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_3__["default"]({
    * Admin routes
    */
   {
-    path: "/admin",
-    name: "admin",
-    component: function component() {
-      return __webpack_require__.e(/*! import() */ "resources_js_views_admin_dashboard_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/admin/dashboard.vue */ "./resources/js/views/admin/dashboard.vue"));
-    },
-    meta: {
-      requiresAuth: true,
-      layout: _views_admin_layout_index__WEBPACK_IMPORTED_MODULE_1__["default"]
-    }
-  }, {
     path: "/admin/companiesList",
     name: "companiesList",
     component: function component() {
@@ -3163,100 +2991,60 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_3__["default"]({
       layout: _views_admin_layout_index__WEBPACK_IMPORTED_MODULE_1__["default"]
     }
   }, {
-    path: "/admin/components/buttons",
-    name: "buttons",
+    path: "/admin/edit-company/:id",
+    name: "edit-company",
     component: function component() {
-      return __webpack_require__.e(/*! import() */ "resources_js_views_admin_buttons_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/admin/buttons.vue */ "./resources/js/views/admin/buttons.vue"));
+      return __webpack_require__.e(/*! import() */ "resources_js_views_admin_addCompany_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/admin/addCompany.vue */ "./resources/js/views/admin/addCompany.vue"));
     },
     meta: {
       requiresAuth: true,
       layout: _views_admin_layout_index__WEBPACK_IMPORTED_MODULE_1__["default"]
     }
   }, {
-    path: "/admin/components/cards",
-    name: "cards",
+    path: "/admin/add-company",
+    name: "addCompany",
     component: function component() {
-      return __webpack_require__.e(/*! import() */ "resources_js_views_admin_cards_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/admin/cards.vue */ "./resources/js/views/admin/cards.vue"));
+      return __webpack_require__.e(/*! import() */ "resources_js_views_admin_addCompany_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/admin/addCompany.vue */ "./resources/js/views/admin/addCompany.vue"));
     },
     meta: {
       requiresAuth: true,
       layout: _views_admin_layout_index__WEBPACK_IMPORTED_MODULE_1__["default"]
     }
   }, {
-    path: "/admin/utilities/colors",
-    name: "colors",
+    path: "/admin/employeeList",
+    name: "employeeList",
     component: function component() {
-      return __webpack_require__.e(/*! import() */ "resources_js_views_admin_colors_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/admin/colors.vue */ "./resources/js/views/admin/colors.vue"));
+      return __webpack_require__.e(/*! import() */ "resources_js_views_admin_employeeList_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/admin/employeeList.vue */ "./resources/js/views/admin/employeeList.vue"));
     },
     meta: {
       requiresAuth: true,
       layout: _views_admin_layout_index__WEBPACK_IMPORTED_MODULE_1__["default"]
     }
   }, {
-    path: "/admin/utilities/borders",
-    name: "borders",
+    path: "/admin/edit-employee/:id",
+    name: "edit-employee",
     component: function component() {
-      return __webpack_require__.e(/*! import() */ "resources_js_views_admin_borders_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/admin/borders.vue */ "./resources/js/views/admin/borders.vue"));
+      return Promise.resolve().then(function webpackMissingModule() { var e = new Error("Cannot find module './views/admin/addEmployee.vue'"); e.code = 'MODULE_NOT_FOUND'; throw e; });
     },
     meta: {
       requiresAuth: true,
       layout: _views_admin_layout_index__WEBPACK_IMPORTED_MODULE_1__["default"]
     }
   }, {
-    path: "/admin/utilities/animations",
-    name: "animations",
+    path: "/admin/add-employee",
+    name: "addEmployee",
     component: function component() {
-      return __webpack_require__.e(/*! import() */ "resources_js_views_admin_animations_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/admin/animations.vue */ "./resources/js/views/admin/animations.vue"));
+      return Promise.resolve().then(function webpackMissingModule() { var e = new Error("Cannot find module './views/admin/addEmployee.vue'"); e.code = 'MODULE_NOT_FOUND'; throw e; });
     },
     meta: {
       requiresAuth: true,
       layout: _views_admin_layout_index__WEBPACK_IMPORTED_MODULE_1__["default"]
     }
   }, {
-    path: "/admin/utilities/other",
-    name: "other",
-    component: function component() {
-      return __webpack_require__.e(/*! import() */ "resources_js_views_admin_other_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/admin/other.vue */ "./resources/js/views/admin/other.vue"));
-    },
-    meta: {
-      requiresAuth: true,
-      layout: _views_admin_layout_index__WEBPACK_IMPORTED_MODULE_1__["default"]
-    }
-  }, {
-    path: "/admin/pages/page-not-found",
+    path: "*",
     name: "page-not-found",
     component: function component() {
-      return __webpack_require__.e(/*! import() */ "resources_js_views_admin_page-not-found_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/admin/page-not-found.vue */ "./resources/js/views/admin/page-not-found.vue"));
-    },
-    meta: {
-      requiresAuth: true,
-      layout: _views_admin_layout_index__WEBPACK_IMPORTED_MODULE_1__["default"]
-    }
-  }, {
-    path: "/admin/pages/blank",
-    name: "blank",
-    component: function component() {
-      return __webpack_require__.e(/*! import() */ "resources_js_views_admin_blank_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/admin/blank.vue */ "./resources/js/views/admin/blank.vue"));
-    },
-    meta: {
-      requiresAuth: true,
-      layout: _views_admin_layout_index__WEBPACK_IMPORTED_MODULE_1__["default"]
-    }
-  }, {
-    path: "/admin/charts",
-    name: "charts",
-    component: function component() {
-      return __webpack_require__.e(/*! import() */ "resources_js_views_admin_charts_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/admin/charts.vue */ "./resources/js/views/admin/charts.vue"));
-    },
-    meta: {
-      requiresAuth: true,
-      layout: _views_admin_layout_index__WEBPACK_IMPORTED_MODULE_1__["default"]
-    }
-  }, {
-    path: "/admin/tables",
-    name: "tables",
-    component: function component() {
-      return __webpack_require__.e(/*! import() */ "resources_js_views_admin_tables_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/admin/tables.vue */ "./resources/js/views/admin/tables.vue"));
+      return Promise.resolve().then(function webpackMissingModule() { var e = new Error("Cannot find module './views/admin/page-not-found.vue'"); e.code = 'MODULE_NOT_FOUND'; throw e; });
     },
     meta: {
       requiresAuth: true,
@@ -93318,7 +93106,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_views_login_index_vue":1,"resources_js_views_register_index_vue":1,"resources_js_views_verify_index_vue":1,"resources_js_views_forgot_index_vue":1,"resources_js_views_reset_index_vue":1,"resources_js_views_admin_dashboard_vue":1,"resources_js_views_admin_companiesList_vue":1,"resources_js_views_admin_buttons_vue":1,"resources_js_views_admin_cards_vue":1,"resources_js_views_admin_colors_vue":1,"resources_js_views_admin_borders_vue":1,"resources_js_views_admin_animations_vue":1,"resources_js_views_admin_other_vue":1,"resources_js_views_admin_page-not-found_vue":1,"resources_js_views_admin_blank_vue":1,"resources_js_views_admin_charts_vue":1,"resources_js_views_admin_tables_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_views_login_index_vue":1,"resources_js_views_register_index_vue":1,"resources_js_views_verify_index_vue":1,"resources_js_views_forgot_index_vue":1,"resources_js_views_reset_index_vue":1,"resources_js_views_admin_companiesList_vue":1,"resources_js_views_admin_addCompany_vue":1,"resources_js_views_admin_employeeList_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

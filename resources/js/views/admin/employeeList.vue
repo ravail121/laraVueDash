@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1 class="h3 mb-2 text-gray-800">Companies</h1>
+        <h1 class="h3 mb-2 text-gray-800">Employees</h1>
         <div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -11,7 +11,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        Are you sure you want to delete this company?
+                        Are you sure you want to delete this employee?
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -23,7 +23,7 @@
 
         <div v-if="successMessage" class="alert alert-success">{{ successMessage }}</div>
         <div class="text-right mb-3">
-            <router-link to="/admin/add-company" class="btn btn-primary">Add Company</router-link>
+            <router-link to="/admin/add-employee" class="btn btn-primary">Add Employee</router-link>
         </div>
 
         <!-- DataTales Example -->
@@ -33,27 +33,27 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>Name</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Company</th>
                                 <th>Email</th>
-                                <th>Website</th>
-                                <th>Logo</th>
+                                <th>Phone</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="company in companies" :key="company.id">
-                                <td>{{ company.name }}</td>
-                                <td>{{ company.email }}</td>
-                                <td>{{ company.website }}</td>
+                            <tr v-for="employee in employees" :key="employee.id">
+                                <td>{{ employee.first_name }}</td>
+                                <td>{{ employee.last_name }}</td>
+                                <td>{{ employee.company.name }}</td>
+                                <td>{{ employee.email }}</td>
+                                <td>{{ employee.phone }}</td>
                                 <td>
-                                    <img :src="getLogoUrl(company.logo)" alt="Company Logo" width="50">
-                                </td>
-                                <td>
-                                    <router-link :to="'/admin/edit-company/' + company.id" :data="company" class="btn btn-primary">
+                                    <router-link :to="'/admin/edit-employee/' + employee.id" :data="employee" class="btn btn-primary">
                                         Edit
                                     </router-link>
 
-                                    <button @click="showConfirmDeleteModal(company.id)" class="btn btn-danger">
+                                    <button @click="showConfirmDeleteModal(employee.id)" class="btn btn-danger">
                                         Delete
                                     </button>
                                 </td>
@@ -71,58 +71,56 @@ import "datatables.net-dt/js/dataTables.dataTables"
 import "datatables.net-dt/css/jquery.dataTables.min.css"
 
 export default {
-    name: 'companiesList',
+    name: 'employeesList',
     data() {
         return {
-            companies: [],
+            employees: [],
             successMessage: this.$route.params.successMessage,
-            companyToDelete: null, // Track the company to delete
+            employeeToDelete: null, // Track the employee to delete
         };
     },
     methods: {
-        // Method to fetch company data from the API
-        fetchCompanies() {
-            axios.get('/companies')
+        // Method to fetch employee data from the API
+        fetchEmployees() {
+            axios.get('/employees')
                 .then(response => {
-                    this.companies = response.data.data;
+                    this.employees = response.data.data;
                 })
                 .catch(error => {
-                    console.error('Error fetching company data:', error);
+                    console.error('Error fetching employee data:', error);
                 });
         },
-        // Method to get the logo URL
-        getLogoUrl(logo) {
-            if (logo) {
-                return `/storage/logos/${logo}`;
-            }
-            return '/default-logo.png';
-        },
-        // Show the confirmation modal and store the company to delete
-        showConfirmDeleteModal(companyId) {
-            this.companyToDelete = companyId;
+        // Show the confirmation modal and store the employee to delete
+        showConfirmDeleteModal(employeeId) {
+            this.employeeToDelete = employeeId;
             $('#confirmDeleteModal').modal('show');
         },
-        // Confirm and delete the company
+        // Confirm and delete the employee
         confirmDelete() {
-            if (this.companyToDelete) {
-                axios.delete(`/companies/${this.companyToDelete}`)
+            if (this.employeeToDelete) {
+                axios.delete(`/employees/${this.employeeToDelete}`)
                     .then(response => {
-                        // Remove the company from the list
-                        this.companies = this.companies.filter(company => company.id !== this.companyToDelete);
+                        // Remove the employee from the list
+                        this.employees = this.employees.filter(employee => employee.id !== this.employeeToDelete);
 
                         // Hide the confirmation modal
                         $('#confirmDeleteModal').modal('hide');
                     })
                     .catch(error => {
-                        console.error('Error deleting company:', error);
+                        console.error('Error deleting employee:', error);
                     });
             }
         },
     },
     mounted() {
-        this.fetchCompanies().then(() => {
-        $('#dataTable').DataTable();
-    });
+        this.fetchEmployees()
+            .then(() => {
+                $('#dataTable').DataTable();
+            })
+            .catch((error) => {
+                console.error('Error during component initialization:', error);
+            });
+    
     },
 };
 </script>
