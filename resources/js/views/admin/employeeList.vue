@@ -60,6 +60,10 @@
                             </tr>
                         </tbody>
                     </table>
+                    <div>
+                            <button class="btn btn-secondary" @click="fetchEmployees(links.prev_page_url)" :disabled="!links.prev_page_url">Previous</button>
+                            <button class="btn btn-secondary" @click="fetchEmployees(links.next_page_url)" :disabled="!links.next_page_url">Next</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -76,15 +80,17 @@ export default {
         return {
             employees: [],
             successMessage: this.$route.params.successMessage,
-            employeeToDelete: null, // Track the employee to delete
+            employeeToDelete: null, 
+            links:[]
         };
     },
     methods: {
         // Method to fetch employee data from the API
-        fetchEmployees() {
-            axios.get('/employees')
+        fetchEmployees(url) {
+            axios.get(url)
                 .then(response => {
                     this.employees = response.data.data;
+                    this.links = response.data;
                 })
                 .catch(error => {
                     console.error('Error fetching employee data:', error);
@@ -113,13 +119,13 @@ export default {
         },
     },
     mounted() {
-        this.fetchEmployees()
-            .then(() => {
-                $('#dataTable').DataTable();
-            })
-            .catch((error) => {
-                console.error('Error during component initialization:', error);
+        this.fetchEmployees('/employees');
+        setTimeout(function() { 
+            $('#dataTable').DataTable({
+                'paging':false,
+                "bInfo" : false
             });
+        }, 200);
     
     },
 };

@@ -116,7 +116,7 @@ router.beforeEach((to, from, next) => {
             next();
             return;
         }
-        next("/login");
+        next({ name: 'login' });
     } else {
         next();
     }

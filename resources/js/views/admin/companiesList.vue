@@ -60,6 +60,10 @@
                             </tr>
                         </tbody>
                     </table>
+                    <div>
+                            <button class="btn btn-secondary" @click="fetchCompanies(links.prev_page_url)" :disabled="!links.prev_page_url">Previous</button>
+                            <button class="btn btn-secondary" @click="fetchCompanies(links.next_page_url)" :disabled="!links.next_page_url">Next</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -77,14 +81,16 @@ export default {
             companies: [],
             successMessage: this.$route.params.successMessage,
             companyToDelete: null, // Track the company to delete
+            links:[]
         };
     },
     methods: {
         // Method to fetch company data from the API
-        fetchCompanies() {
-            axios.get('/companies')
+        fetchCompanies(url) {
+            axios.get(url)
                 .then(response => {
                     this.companies = response.data.data;
+                    this.links=response.data
 
                 })
                 .catch(error => {
@@ -122,9 +128,12 @@ export default {
         },
     },
     mounted() {
-        this.fetchCompanies();
+        this.fetchCompanies('/companies');
         setTimeout(function() { 
-            $('#dataTable').DataTable();
+            $('#dataTable').DataTable({
+                'paging':false,
+                "bInfo" : false
+            });
         }, 200);
     },
 };

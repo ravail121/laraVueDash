@@ -10,7 +10,7 @@ class EmployeeController extends Controller
 {
     public function index()
     {
-        $employees = Employee::paginate(10);
+        $employees = Employee::with('company')->paginate(10);
         return response()->json($employees);
     }
 
@@ -18,9 +18,6 @@ class EmployeeController extends Controller
     {
         $data = $request->validated();
         
-        // Handle any validation, file uploads, or other processing as needed
-        // ...
-
         $employee = Employee::create($data);
 
         return response()->json($employee, 201);

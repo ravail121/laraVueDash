@@ -22,7 +22,9 @@ __webpack_require__.r(__webpack_exports__);
       errors: {},
       errorMessage: '',
       logo: null,
-      mode: 'add' // Default mode is 'add'
+      mode: 'add',
+      // Default mode is 'add'
+      isLoading: false
     };
   },
   created: function created() {
@@ -47,9 +49,16 @@ __webpack_require__.r(__webpack_exports__);
     handleLogoUpload: function handleLogoUpload(event) {
       this.logo = event.target.files[0];
     },
+    showSpinner: function showSpinner() {
+      this.showGlobalSpinner = true;
+    },
+    hideSpinner: function hideSpinner() {
+      this.showGlobalSpinner = false;
+    },
     submitForm: function submitForm() {
       var _this2 = this;
       // Reset errors
+      this.isLoading = true;
       this.errors = {};
 
       // Create a FormData object to send form data, including the logo file
@@ -86,7 +95,7 @@ __webpack_require__.r(__webpack_exports__);
         };
         _this2.logo = null;
         _this2.errorMessage = '';
-
+        _this2.isLoading = false;
         // Set the success message
         _this2.successMessage = _this2.mode === 'add' ? 'Company added successfully' : 'Company updated successfully';
 
@@ -102,11 +111,14 @@ __webpack_require__.r(__webpack_exports__);
           // Handle validation errors
           _this2.errors = error.response.data.errors;
           _this2.errorMessage = 'Please correct the errors in the form.';
+          _this2.isLoading = false;
         } else {
           // Handle other errors
           _this2.errorMessage = error.response.data.message;
+          _this2.isLoading = false;
         }
         _this2.successMessage = '';
+        _this2.isLoading = false;
       });
     }
   }
@@ -167,7 +179,9 @@ var render = function render() {
     }
   }), _vm._v(" "), _vm.errors.name ? _c("div", {
     staticClass: "text-danger"
-  }, [_vm._v(_vm._s(_vm.errors.name[0]))]) : _vm._e()]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.errors.name[0]))]) : _vm._e()]), _vm._v(" "), _vm.isLoading ? _c("div", {
+    staticClass: "loading-overlay"
+  }, [_c("Spinner")], 1) : _vm._e(), _vm._v(" "), _c("div", {
     staticClass: "form-group"
   }, [_c("label", {
     attrs: {

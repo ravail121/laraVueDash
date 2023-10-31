@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Company;
 use App\Http\Requests\CompanyRequest;
+use App\Mail\NewCompanyEmail;
+use App\Models\User;
+use Illuminate\Support\Facades\Mail;
+
 
 class CompanyController extends Controller
 {
@@ -24,6 +28,7 @@ class CompanyController extends Controller
         }
         
         $company = Company::create($data);
+        Mail::to($company->email)->send(new NewCompanyEmail($company));
 
         return response()->json($company, 201);
     }

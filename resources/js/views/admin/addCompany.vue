@@ -8,7 +8,10 @@
           <input type="text" id="name" v-model="company.name" class="form-control" required>
           <div v-if="errors.name" class="text-danger">{{ errors.name[0] }}</div>
         </div>
-  
+        <div v-if="isLoading" class="loading-overlay">
+          <Spinner></Spinner>
+        </div>
+        
         <!-- Email Input -->
         <div class="form-group">
           <label for="email">Email</label>
@@ -52,6 +55,7 @@
         errorMessage: '',
         logo: null,
         mode: 'add', // Default mode is 'add'
+        isLoading: false
       };
     },
     created() {
@@ -77,8 +81,15 @@
       handleLogoUpload(event) {
         this.logo = event.target.files[0];
       },
+      showSpinner() {
+      this.showGlobalSpinner = true;
+      },
+      hideSpinner() {
+        this.showGlobalSpinner = false;
+      },
       submitForm() {
         // Reset errors
+        this.isLoading = true;
         this.errors = {};
   
         // Create a FormData object to send form data, including the logo file
@@ -116,7 +127,7 @@
             };
             this.logo = null;
             this.errorMessage = '';
-  
+            this.isLoading = false;
             // Set the success message
             this.successMessage = this.mode === 'add' ? 'Company added successfully' : 'Company updated successfully';
   
@@ -128,11 +139,14 @@
               // Handle validation errors
               this.errors = error.response.data.errors;
               this.errorMessage = 'Please correct the errors in the form.';
+              this.isLoading = false;
             } else {
               // Handle other errors
               this.errorMessage = error.response.data.message;
+              this.isLoading = false;
             }
             this.successMessage = '';
+            this.isLoading = false;
           });
       },
     },
