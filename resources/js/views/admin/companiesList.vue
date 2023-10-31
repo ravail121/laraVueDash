@@ -85,6 +85,7 @@ export default {
             axios.get('/companies')
                 .then(response => {
                     this.companies = response.data.data;
+
                 })
                 .catch(error => {
                     console.error('Error fetching company data:', error);
@@ -112,6 +113,7 @@ export default {
 
                         // Hide the confirmation modal
                         $('#confirmDeleteModal').modal('hide');
+                        
                     })
                     .catch(error => {
                         console.error('Error deleting company:', error);
@@ -120,9 +122,10 @@ export default {
         },
     },
     mounted() {
-        this.fetchCompanies().then(() => {
-        $('#dataTable').DataTable();
-    });
+        this.fetchCompanies();
+        setTimeout(function() { 
+            $('#dataTable').DataTable();
+        }, 200);
     },
 };
 </script>

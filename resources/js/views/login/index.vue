@@ -140,7 +140,7 @@ export default {
 
         localStorage.setItem("token", response.data.token);
         this.$store.dispatch("user", response.data.user);
-        this.$router.push("/admin");
+        this.$router.push("/admin/companiesList");
       } catch (error) {
         notify.authError(error);
       }

@@ -3044,7 +3044,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_3__["default"]({
     path: "*",
     name: "page-not-found",
     component: function component() {
-      return Promise.resolve().then(function webpackMissingModule() { var e = new Error("Cannot find module './views/admin/page-not-found.vue'"); e.code = 'MODULE_NOT_FOUND'; throw e; });
+      return __webpack_require__.e(/*! import() */ "resources_js_views_admin_page-not-found_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/admin/page-not-found.vue */ "./resources/js/views/admin/page-not-found.vue"));
     },
     meta: {
       requiresAuth: true,
@@ -93106,7 +93106,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_views_login_index_vue":1,"resources_js_views_register_index_vue":1,"resources_js_views_verify_index_vue":1,"resources_js_views_forgot_index_vue":1,"resources_js_views_reset_index_vue":1,"resources_js_views_admin_companiesList_vue":1,"resources_js_views_admin_addCompany_vue":1,"resources_js_views_admin_employeeList_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_views_login_index_vue":1,"resources_js_views_register_index_vue":1,"resources_js_views_verify_index_vue":1,"resources_js_views_forgot_index_vue":1,"resources_js_views_reset_index_vue":1,"resources_js_views_admin_companiesList_vue":1,"resources_js_views_admin_addCompany_vue":1,"resources_js_views_admin_employeeList_vue":1,"resources_js_views_admin_page-not-found_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};
